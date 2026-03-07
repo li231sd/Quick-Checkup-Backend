@@ -5,6 +5,10 @@ import os
 app = Flask(__name__)
 CORS(app) 
 
+@app.route('/')
+def health_check():
+    return "AI Engine is Running!", 200
+
 if __name__ == "__main__":
     # Railway sets the 'PORT' env var automatically
     port = int(os.environ.get("PORT", 5000))
